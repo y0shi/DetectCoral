@@ -16,13 +16,13 @@ cd /tensorflow/models/research
 echo "Downloading model"
 ./prepare_checkpoint_and_dataset.sh --network_type mobilenet_v2_ssd --train_whole_model false  > /dev/null 2>/dev/null
 
-./tar_to_record.sh
+# ./tar_to_record.sh
 
 cd /opt/ml/input/data/training
-classes=$(python3 /tensorflow/models/research/labels.py)
+# classes=$(python3 /tensorflow/models/research/labels.py)
 cd /tensorflow/models/research
 
-sed -i "s%NUM_CLASSES%${classes}%g" "./pipeline.config"
+# sed -i "s%NUM_CLASSES%${classes}%g" "./pipeline.config"
 
 # Copy custom pipeline into docker
 cp pipeline.config /tensorflow/models/research/learn/ckpt/pipeline.config
